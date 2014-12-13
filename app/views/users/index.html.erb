@@ -1,0 +1,36 @@
+<h1>Listing addresses</h1>
+
+<p class="error"><%= flash[:error] %></p>
+<p id="notice"><%= notice %></p>
+
+<table id="addresses">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>Buildnumber</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.id %></td>
+        <td><%= address.country %></td>
+        <td><%= address.city %></td>
+        <td><%= address.street %></td>
+        <td><%= address.buildNumber %></td>
+        <td><%= link_to 'Show', address %> |
+            <%= link_to 'Edit', edit_address_path(address) %> |
+            <%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Address', new_address_path %>
