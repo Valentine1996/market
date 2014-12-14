@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  maker: MyString
+  color: MyString
+  prise: 1
+
+two:
+  name: MyString
+  maker: MyString
+  color: MyString
+  prise: 1
