@@ -1,0 +1,40 @@
+<h1>Listing merchants</h1>
+
+<div>
+<%= form_tag( merchants_path, :method => 'get' ) do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Discount</th>
+      <th>Address</th>
+      <th width="150">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @merchants.each do |merchant| %>
+      <tr>
+        <td><%= merchant.name %></td>
+        <td><%= merchant.discount %></td>
+        <td><%= link_to merchant.address.short_address, merchant.address %></td>
+        <td>
+          <%= link_to 'Show', merchant %> |
+            <%= link_to 'Edit', edit_merchant_path(merchant) %> |
+            <%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Merchant', new_merchant_path %>

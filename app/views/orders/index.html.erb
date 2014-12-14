@@ -1,0 +1,31 @@
+<h1>Listing orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Orderdate</th>
+      <th>Performance</th>
+      <th>Customer</th>
+      <th width="150">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.orderdate %></td>
+        <td><%= order.performance %></td>
+        <td><%= link_to order.customer.name, order.customer %></td>
+        <td>
+          <%= link_to 'Show', order %> |
+          <%= link_to 'Edit', edit_order_path(order) %> |
+          <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>

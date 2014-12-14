@@ -1,10 +1,55 @@
 <%# add navigation links to this file %>
+<% if user_signed_in? %>
+    <li><%= link_to 'Users', users_path %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Merchant<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="/merchants">List</a></li>
+        <li class="divider"></li>
+        <li><a href="/merchants/new">Create</a></li>
+      </ul>
+    </li>
+<% end %>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/customers">List</a></li>
+    <li class="divider"></li>
+    <li><a href="/customers/new">Create</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Order<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/orders">List</a></li>
+    <li class="divider"></li>
+    <li><a href="/orders/new">Create</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Order details<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/order_details">List</a></li>
+    <li class="divider"></li>
+    <li><a href="/order_details/new">Create</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Address<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/addresses">List</a></li>
+    <li class="divider"></li>
+    <li><a href="/addresses/new">Create</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="/products">List</a></li>
+    <li class="divider"></li>
+    <li><a href="/products/new">Create</a></li>
+  </ul>
+</li>
+</li>
 <li><%= link_to 'About', page_path('about') %></li>
-<% if user_signed_in? %>
-  <li><%= link_to 'Sign out', signout_path %></li>
-<% else %>
-  <li><%= link_to 'Sign in', signin_path %></li>
-<% end %>
-<% if user_signed_in? %>
-  <li><%= link_to 'Users', users_path %></li>
-<% end %>
+<li><a href="#">Contact</a></li>

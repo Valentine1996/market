@@ -1,0 +1,17 @@
+<p>
+  <strong>Number:</strong>
+  <%= @order_detail.number %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @order_detail.product.name %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_detail.order.id %>
+</p>
+
+<%= link_to 'Edit', edit_order_detail_path(@order_detail) %> |
+<%= link_to 'Back', order_details_path %>
