@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /customers/1
@@ -18,8 +18,6 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
-    @addresses = Address.all
-    @merchants = Merchant.all
   end
 
   # GET /customers/1/edit

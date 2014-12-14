@@ -7,7 +7,7 @@ class MerchantsController < ApplicationController
   # GET /merchants
   # GET /merchants.json
   def index
-    @merchants = Merchant.search(params[:search])
+    @merchants = Merchant.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /merchants/1

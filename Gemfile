@@ -38,3 +38,4 @@ end
 gem "execjs"
 gem "therubyracer"
 gem 'autoprefixer-rails'
+gem 'will_paginate'

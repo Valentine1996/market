@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :address_id %><br>
-    <%= f.collection_select(:address_id, @addresses, :id, :short_address) %>
+    <%= f.collection_select(:address_id, Address.all, :id, :short_address, {:selected => :address_id}) %>
   </div>
   <div class="field">
     <%= f.label :merchant_id %><br>
-    <%= f.collection_select(:merchant_id, @merchants, :id, :name) %>
+    <%= f.collection_select(:merchant_id, Merchant.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = Address.all
+    @addresses = Address.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /addresses/1

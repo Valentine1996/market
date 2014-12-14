@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user?, :except => [:index]
 
   def index
-    @users = User.all
+    @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => 1)
   end
 
   def show

@@ -1,5 +1,14 @@
 <h1>Listing order_details</h1>
 
+<div>
+  <%= form_tag( order_details_path, :method => 'get' ) do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -25,6 +34,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @order_details %>
 
 <br>
 

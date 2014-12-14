@@ -14,6 +14,14 @@ class Address < ActiveRecord::Base
             numericality: true
 
   def short_address
-    country << ' ' << city << ' ' << street << ' ' << number.to_s
+    country + ' ' + city + ' ' + street + ' ' + number.to_s
+  end
+
+  def self.search(search)
+    if search
+      where('country LIKE ? OR city LIKE ? OR street LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
   end
 end
